@@ -7,16 +7,17 @@ public class Main {
     public static void main(String[] args){
         Hero hero = new Hero("勇者", 10, 5);
         Enemy enemy = new Enemy("スライム", 6, 3);
-
-        System.out.printf("%s vs. %s\n", hero.getName(), enemy.getName());
+        System.out.println(hero.status() + enemy.status());
+        System.out.printf("%s vs. %s\n\n", hero.getName(), enemy.getName());
 
         int turn = 0;
         while(!hero.isDead() && !enemy.isDead()){
+            if (turn > 0){System.out.println("\n" + hero.status() + enemy.status());}
             turn++;
             System.out.printf("%dターン目開始！\n", turn);
             hero.attack(enemy);
             enemy.attack(hero);
         }
-        System.out.println("戦闘終了");
+        System.out.println("\n戦闘終了");
     }
 }
