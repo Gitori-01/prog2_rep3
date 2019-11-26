@@ -23,6 +23,19 @@ public class Enemy extends LivingThings{
     }
 
     @Override
+    public void attack(LivingThings opponent) {
+        int damage = (int)(Math.random() * getAttack());
+        if (!isDead()){
+            if (damage == 0){
+                System.out.printf("%sの攻撃！うまくかわした！\n", getName());
+            }else {
+                System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", getName(), opponent.getName(), damage);
+            }
+            opponent.wounded(damage);
+        }
+    }
+
+    @Override
     public void wounded(int damage){
         setHitPoint(getHitPoint() - damage);
         if( getHitPoint() < 0 ) {
