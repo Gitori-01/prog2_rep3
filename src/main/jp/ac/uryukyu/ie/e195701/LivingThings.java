@@ -43,6 +43,10 @@ public class LivingThings {
         this.hitPoint = hitPoint;
     }
 
+    /**
+     * 現在のステータスを返すメソッド。
+     * @return String
+     */
     public String status(){
         return String.format("%s\n HP  %2d\n ATK %2d\n", name, hitPoint, attack);
     }
