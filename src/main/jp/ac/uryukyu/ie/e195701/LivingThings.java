@@ -61,8 +61,9 @@ public class LivingThings {
      * @param opponent 攻撃対象
      */
     public void attack(LivingThings opponent){
-        int damage = (int)(Math.random() * attack);
+
         if (!dead){
+            int damage = (int)(Math.random() * attack);
             System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, opponent.getName(), damage);
             opponent.wounded(damage);
         }
